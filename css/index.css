@@ -21,6 +21,26 @@
 /* background */
 body {
     background-color: #fff3e4;
-}
 
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+.date{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: 80px;
+    background-color: #FCD69C;
+    border-radius: 40px 40px 40px 40px;
+    align-items: center;
+}
+.datetext{
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
 /* container 위치 잡기 */
