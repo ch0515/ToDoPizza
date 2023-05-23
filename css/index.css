@@ -23,7 +23,10 @@ body {
     background-color: #fff3e4;
 
 }
-main{
+main{/*한 줄씩 사용*/
+    display: block;
+}
+.main1{
     display: flex;
     justify-content: center;
 }
@@ -37,10 +40,52 @@ main{
     align-items: center;
 }
 .datetext{
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
     text-align: center;
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: bold;
 }
+.left_btn{
+    background: url("/img/left.png");
+    width: 32px;
+    height: 32px;
+    border: 0;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+.right_btn{
+    background: url("/img/right.png");
+    width: 32px;
+    height: 32px;
+    border: 0;
+    margin-top: 3px;
+    margin-right: 10px;
+}
 /* container 위치 잡기 */
+.list{
+    display: flex;
+    justify-content: center;
+}
+.target{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: 55px;
+    width: 185px;
+    background-color: #FCD69C;
+    border-radius: 40px 40px 40px 40px;
+    align-items: center;
+}
+.targetText{
+    font-size: 24px;
+    font-weight: bold;
+}
+.add_btn{
+    background: url("/img/add.png");
+    width: 24px;
+    height: 24px;
+    border: 0;
+    margin-left: 10px;
+}
