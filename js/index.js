@@ -1,11 +1,14 @@
-// const datetext = document.getElementById("datetext");
-// function getdate() {
-//   const now = new Date();
-//   const year = now.getFullYear();
-//   const month = now.getMonth();
-//   const date = now.getDate();
+const showToday = () => {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    let date = now.getDate();
 
-//   datetext.innerText = `${year} - ${month + 1} - ${date}`;
-// }
+    let title = `${year} - ${month} - ${date}`;
 
-// getdate();
+    let cardDateDivs = document.querySelectorAll(".card-date");
+    for (cardDateDiv of cardDateDivs) {
+        cardDateDiv.innerHTML = title;
+    }
+}
+showToday();

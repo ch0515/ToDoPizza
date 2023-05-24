@@ -39,11 +39,11 @@ main{/*한 줄씩 사용*/
     border-radius: 40px 40px 40px 40px;
     align-items: center;
 }
-.datetext{
+.card-date{
     margin-left: 30px;
     margin-right: 30px;
     text-align: center;
-    font-size: 2rem;
+    font-size: 40px;
     font-weight: bold;
 }
 .left_btn{
@@ -107,7 +107,7 @@ html, body {
   
   /* ======== Calendar ======== */
   .my-calendar {
-    width: 700px;
+    width: 420px;
     margin: 30px;
     padding: 20px 20px 10px;
     text-align: center;
@@ -115,6 +115,7 @@ html, body {
     border: 1px solid #ddd;
     cursor: default;
   }
+
   .my-calendar .clicked-date {
     border-radius: 25px;
     margin-top: 36px;
@@ -123,9 +124,10 @@ html, body {
     padding: 46px 0 26px;
     background: #ddd;
   }
+  
   .my-calendar .calendar-box {
     float: right;
-    width: 58%;
+    width: 100%;
     padding-left: 30px;
   }
   
