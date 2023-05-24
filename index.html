@@ -1,74 +1,60 @@
 <!--https://anerim.tistory.com/105
-https://70707.tistory.com/16-->
+https://70707.tistory.com/16
+https://im-developer.tistory.com/115-->
 <!--자동 줄 정렬 1. ctrl + A 2. ctrl + K + F-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoPizza</title>
-    <link rel="stylesheet" href="./css/index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoPizza</title>
+  <link rel="stylesheet" href="./css/index.css">
 
 </head>
 
 <body>
-    <!-- nav -------------------------------------------------------------------------------------------------------->
-    <nav class="nav" id="nav">
-        <a href="">TO DO PIZZA</a>
-    </nav>
-    <main>
-        <div class="main1"> 
-            <div class="date">
-                <input type="button" class="left_btn" id="left_btn">
-                <div class="card-date">             <!-- 날짜 -->
-                  2023 - 05 - 24
-                </div>
-                <input type="button" class="right_btn" id="right_btn">
-            </div>
+  <!-- nav -------------------------------------------------------------------------------------------------------->
+  <nav class="nav" id="nav">
+    <a href="">TO DO PIZZA</a>
+  </nav>
+  <main>
+    <div class="main1">
+      <div class="date">
+        <input type="button" class="left_btn" id="left_btn">
+        <div class="flex-container"> <!-- 날짜 -->
+          <h1><span id="year"></span>년 <span id="month"></span>월</h1>
         </div>
-        <div class="list" id="list">
-            <div class="target" id="target">
-                <p class="targetText">목표 추가</p>
-                <input type="button" class="add_btn" id="add_btn">
-            </div>
-        </div>
-        <div class="container">
-            <div class="my-calendar clearfix">
-              <div class="calendar-box">
-                <div class="ctr-box clearfix">
-                  <button type="button" title="prev" class="btn-cal prev">
-                  </button>
-                  <span class="cal-month"></span>
-                  <span class="cal-year"></span>
-                  <button type="button" title="next" class="btn-cal next">
-                  </button>
-                </div>
-                <table class="cal-table">
-                  <thead>
-                    <tr>
-                      <th>S</th>
-                      <th>M</th>
-                      <th>T</th>
-                      <th>W</th>
-                      <th>T</th>
-                      <th>F</th>
-                      <th>S</th>
-                    </tr>
-                  </thead>
-                  <tbody class="cal-body"></tbody>
-                </table>
-              </div>
-            </div>
-            <!-- // .my-calendar -->
+        <input type="button" class="right_btn" id="right_btn">
+      </div>
+    </div>
+    <div class="list" id="list">
+      <div class="target" id="target">
+        <p class="targetText">목표 추가</p>
+        <input type="button" class="add_btn" id="add_btn">
+      </div>
+    </div>
+    <div class="calendar">
+      <div id="calendar">
+          <div class="grid-container days-of-the-week">
+              <div class="grid-item">일</div>
+              <div class="grid-item">월</div>
+              <div class="grid-item">화</div>
+              <div class="grid-item">수</div>
+              <div class="grid-item">목</div>
+              <div class="grid-item">금</div>
+              <div class="grid-item">토</div>
           </div>
-        <div class="pizza" id="pizza">
-            
-        </div>
-    </main>
-    <script src="./js/index.js"></script>
-    <script src="./js/calendar.js"></script>
+          <div class="date-grid-container"></div>
+      </div>
+  </div>
+    <div class="pizza" id="pizza">
+
+    </div>
+  </main>
+  <script src="./js/index.js"></script>
+  <script src="./js/calendar.js"></script>
 </body>
 
 </html>
