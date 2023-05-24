@@ -22,7 +22,7 @@ https://70707.tistory.com/16-->
         <div class="main1"> 
             <div class="date">
                 <input type="button" class="left_btn" id="left_btn">
-                <p class="datetext" id="datetext"></p> <!--여기서부터 wsm 캘린더 파일 보고 수정하기-->
+                <p class="datetext"><span id="year"></span>- <span id="month"></span>- <span id="day"></span></p> <!--여기서부터 wsm 캘린더 파일 보고 수정하기-->
                 <input type="button" class="right_btn" id="right_btn">
             </div>
         </div>
@@ -32,19 +32,42 @@ https://70707.tistory.com/16-->
                 <input type="button" class="add_btn" id="add_btn">
             </div>
         </div>
-        <div class="calendar" id="calendar">
-            <div class="grid-container days-of-the-week">
-                <div class="grid-item">Sun</div>
-                <div class="grid-item">Mon</div>
-                <div class="grid-item">Tue</div>
-                <div class="grid-item">Wed</div>
-                <div class="grid-item">Thu</div>
-                <div class="grid-item">Fri</div>
-                <div class="grid-item">Sat</div>
+        <div class="container">
+            <div class="my-calendar clearfix">
+              <div class="clicked-date">
+                <div class="cal-day"></div>
+                <div class="cal-date"></div>
+              </div>
+              <div class="calendar-box">
+                <div class="ctr-box clearfix">
+                  <button type="button" title="prev" class="btn-cal prev">
+                  </button>
+                  <span class="cal-month"></span>
+                  <span class="cal-year"></span>
+                  <button type="button" title="next" class="btn-cal next">
+                  </button>
+                </div>
+                <table class="cal-table">
+                  <thead>
+                    <tr>
+                      <th>S</th>
+                      <th>M</th>
+                      <th>T</th>
+                      <th>W</th>
+                      <th>T</th>
+                      <th>F</th>
+                      <th>S</th>
+                    </tr>
+                  </thead>
+                  <tbody class="cal-body"></tbody>
+                </table>
+              </div>
             </div>
-            <div class="date-grid-container"></div>
+            <!-- // .my-calendar -->
+          </div>
+        <div class="pizza" id="pizza">
+            
         </div>
-        <div class="container3" id="pizza"></div>
     </main>
     <script src="./js/index.js"></script>
     <script src="./js/calendar.js"></script>

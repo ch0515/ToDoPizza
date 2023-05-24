@@ -1,84 +1,131 @@
-const setCalendar = (year,month) => {
-    // 오늘 년, 오늘 월, 1 날짜 객체 구하자
-    let firstDate = new Date(year, month-1, 1);
-    // 그 객체 요일 구하자
-    let firstDay = firstDate.getDay();
-    console.log(`${year}-${month} ${firstDay}요일`);
-    //html 제어하자
-
-    // 오늘 년, 오늘 월 + , 0 날짜 객체 구하자
-    let lastDate = new Date(year, month, 0).getDate();
-    console.log(`${lastDate}일`); //30일
-
-    //제목 표시하자
-    //HTML id -> js 변수
-    const yearSpan = document.getElementById("year");
-    const monthSpan = document.getElementById("month");
-    //js.innerHTML 설정하자
-    yearSpan.innerHTML = year;
-    monthSpan.innerHTML = month;
-
-    //1~lastDate까지 반복하자
-    const dateGridContainerDiv = document.getElementsByClassName("date-grid-container")[0];
-    dateGridContainerDiv.innerHTML = ''; //초기화
+const init = {
+    monList: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '010', '011', '012'],
+    dayList: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    today: new Date(),
+    monForChange: new Date().getMonth(),
+    activeDate: new Date(),
+    getFirstDay: (yy, mm) => new Date(yy, mm, 1),
+    getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+    nextMonth: function () {
+      let d = new Date();
+      d.setDate(1);
+      d.setMonth(++this.monForChange);
+      this.activeDate = d;
+      return d;
+    },
+    prevMonth: function () {
+      let d = new Date();
+      d.setDate(1);
+      d.setMonth(--this.monForChange);
+      this.activeDate = d;
+      return d;
+    },
+    addZero: (num) => (num < 10) ? '0' + num : num,
+    activeDTag: null,
+    getIndex: function (node) {
+      let index = 0;
+      while (node = node.previousElementSibling) {
+        index++;
+      }
+      return index;
+    }
+  };
+  
+  const $calBody = document.querySelector('.cal-body');
+  const $btnNext = document.querySelector('.right_btn');
+  const $btnPrev = document.querySelector('.left_btn');
+  
+  /**
+   * @param {number} date
+   * @param {number} dayIn
+  */
+  function loadDate (date, dayIn) {
+    document.querySelector('.cal-date').textContent = date;
+    document.querySelector('.cal-day').textContent = init.dayList[dayIn];
+  }
+  
+  /**
+   * @param {date} fullDate
+   */
+  function loadYYMM (fullDate) {
+    let yy = fullDate.getFullYear();
+    let mm = fullDate.getMonth();
+    let firstDay = init.getFirstDay(yy, mm);
+    let lastDay = init.getLastDay(yy, mm);
+    let markToday;  // for marking today date
     
-    for (let i = 1; i <= lastDate; i++){
-   //<div class="grid-item">$</div>
-   //새로운 element 만들자
-   let newElem = document.createElement("div");
-   //그 element class="grid-item"
-   newElem.classList.add("grid-item");
-   //그 element 텍스트 = i
-   newElem.innerHTML = i;
-   //.date-grid-container에 자식으로 붙이자ㅏ
-   dateGridContainerDiv.appendChild(newElem);
+    if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
+      markToday = init.today.getDate();
     }
- 
-    //1일 : grid-column-start: 요일 + 1;
-    let firstDateDiv = dateGridContainerDiv.getElementsByClassName("grid-item")[0];
-    firstDateDiv.style.gridColumnStart = firstDay + 1;
-
-    //event
-    for( let gridItem of gridItems){
-        gridItem.onmouseover = handler;
-        //gridItem.addEventListener("mouseover",handler);
+  
+    document.querySelector('.cal-month').textContent = init.monList[mm];
+    document.querySelector('.cal-year').textContent = yy;
+  
+    let trtd = '';
+    let startCount;
+    let countDay = 0;
+    for (let i = 0; i < 6; i++) {
+      trtd += '<tr>';
+      for (let j = 0; j < 7; j++) {
+        if (i === 0 && !startCount && j === firstDay.getDay()) {
+          startCount = 1;
+        }
+        if (!startCount) {
+          trtd += '<td>'
+        } else {
+          let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+          trtd += '<td class="day';
+          trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
+          trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+        }
+        trtd += (startCount) ? ++countDay : '';
+        if (countDay === lastDay.getDate()) { 
+          startCount = 0; 
+        }
+        trtd += '</td>';
+      }
+      trtd += '</tr>';
     }
-}
-//prevMonth 함수
-const prevMonth = () => {
-    //이전 월 구하자
-    month--;
-    if(month==0){
-        year--;
-        month = 12;
+    $calBody.innerHTML = trtd;
+  }
+  
+  /**
+   * @param {string} val
+   */
+  function createNewList (val) {
+    let id = new Date().getTime() + '';
+    let yy = init.activeDate.getFullYear();
+    let mm = init.activeDate.getMonth() + 1;
+    let dd = init.activeDate.getDate();
+    const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
+  
+    let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
+  
+    let eventData = {};
+    eventData['date'] = date;
+    eventData['memo'] = val;
+    eventData['complete'] = false;
+    eventData['id'] = id;
+    init.event.push(eventData);
+    $todoList.appendChild(createLi(id, val, date));
+  }
+  
+  loadYYMM(init.today);
+  loadDate(init.today.getDate(), init.today.getDay());
+  
+  $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
+  $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
+  
+  $calBody.addEventListener('click', (e) => {
+    if (e.target.classList.contains('day')) {
+      if (init.activeDTag) {
+        init.activeDTag.classList.remove('day-active');
+      }
+      let day = Number(e.target.textContent);
+      loadDate(day, e.target.cellIndex);
+      e.target.classList.add('day-active');
+      init.activeDTag = e.target;
+      init.activeDate.setDate(day);
+      reloadTodo();
     }
-    //setCalendar(년, 구한 월);
-    setCalendar(year, month);
-}
-
-//nextMonth 함수
-const nextMonth = () => {
-    //다음 월 구하자
-    month++;
-    if(month>12){
-        year++;
-        month = 1;
-    }
-    //setCalendar(년, 구한 월);
-    setCalendar(year, month);
-}
-
-//prev버튼 누르면 prevMonth 함수 실행하자
-prev_btn.onclick = prevMonth; // 괄호 쓰면 함수 실행한 결과를 넣는거임
-//next버튼 누르면 nextMonth 함수 실행하자
-next_btn.onclick = nextMonth;
-
-// 오늘 구하자
-let today = new Date();
-// 오늘 년 구하자
-let year = today.getFullYear();
-// 오늘 월 구하자
-let month = today.getMonth(); //0~11
-month++;
-
-setCalendar(year,month);
+  });
