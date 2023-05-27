@@ -89,38 +89,47 @@ main{/*한 줄씩 사용*/
     border: 0;
     margin-left: 10px;
 }
-.flex-container{
-  display: flex;
-  justify-content: center;
-  column-gap: 40px;
-  max-width: 800px;
-  align-items: center;
-}
-#prev_btn,
-#next_btn{
-  border: 2px solid #eee;
-  border-radius: 8px;
-  padding: 8px;
-  cursor: pointer;
-}
-#calendar{
-  max-width: 500px;
-  font-size: var(--h2-font-size);
-}
-.grid-container,
-.date-grid-container{
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  font-weight: bold;
-}
-.grid-item{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: default;
-}
-.data-grid-container, .grid-item:hover{
-  border-radius: 20px;
-  background-color: greenyellow;
-  cursor: pointer;
-}
+
+  /* ======== Calendar ======== */
+  .my-calendar {
+    float: right;
+    margin-right: 20%;
+    width: 400px;
+    text-align: center;
+    font-weight: 800;
+    cursor: default;
+  }
+  .my-calendar .calendar-box {
+    width: 100%;
+  }
+
+  /*캘린더 크기*/
+  .cal-table {
+    width: 100%;
+  }
+  /*달력 요일*/
+  .cal-table th {
+    width: 14.2857%;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 900; /*굵기*/
+  }
+  /*달력 일*/
+  .cal-table td {
+    padding: 3px 0;
+    height: 50px;
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  
+  /* 일이 클릭되었을 때 색*/
+  .cal-table td.today {
+    background: #96d84b;
+    border-radius: 30px 30px 30px 30px;
+    color: #fff;
+  }
+  .cal-table td.day-active {
+    background: #5fbff7;
+    border-radius: 30px 30px 30px 30px;
+    color: #fff;
+  }

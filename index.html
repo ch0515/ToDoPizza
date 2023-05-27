@@ -24,34 +24,42 @@ https://im-developer.tistory.com/115-->
       <div class="date">
         <input type="button" class="left_btn" id="left_btn">
         <div class="flex-container"> <!-- 날짜 -->
-          <h1><span id="year"></span>년 <span id="month"></span>월</h1>
+          <h1><span id="year" class="year"></span>년 <span id="month" class="month"></span>월 <span id="day" class="day"></span>일</h1>
         </div>
         <input type="button" class="right_btn" id="right_btn">
       </div>
     </div>
+    <div class="main2">
     <div class="list" id="list">
       <div class="target" id="target">
         <p class="targetText">목표 추가</p>
         <input type="button" class="add_btn" id="add_btn">
       </div>
     </div>
-    <div class="calendar">
-      <div id="calendar">
-          <div class="grid-container days-of-the-week">
-              <div class="grid-item">일</div>
-              <div class="grid-item">월</div>
-              <div class="grid-item">화</div>
-              <div class="grid-item">수</div>
-              <div class="grid-item">목</div>
-              <div class="grid-item">금</div>
-              <div class="grid-item">토</div>
-          </div>
-          <div class="date-grid-container"></div>
+    <!--캘린더 시작-->
+    <div class="container">
+      <div class="my-calendar clearfix">
+        <div class="calendar-box">
+          <table class="cal-table">
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody class="cal-body"></tbody> <!--달력 일 구현-->
+          </table>
+        </div>
       </div>
-  </div>
-    <div class="pizza" id="pizza">
-
     </div>
+    <div class="pizza" id="pizza">
+    </div>
+  </div>
   </main>
   <script src="./js/index.js"></script>
   <script src="./js/calendar.js"></script>
