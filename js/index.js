@@ -1,14 +1,5 @@
-// const showToday = () => {
-//     let now = new Date();
-//     let year = now.getFullYear();
-//     let month = now.getMonth() + 1;
-//     let date = now.getDate();
+const targetaddbtn = document.getElementById('add_btn');
 
-//     let title = `${year} - ${month} - ${date}`;
-
-//     let cardDateDivs = document.querySelectorAll(".card-date");
-//     for (cardDateDiv of cardDateDivs) {
-//         cardDateDiv.innerHTML = title;
-//     }
-// }
-// showToday();
+targetaddbtn.addEventListener('click', () => {
+    alert('안녕!');
+})
