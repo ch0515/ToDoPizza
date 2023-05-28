@@ -1,37 +1,59 @@
-// ================================
-// START YOUR APP HERE
+// ================================ START YOUR APP HERE
 // ================================
 const init = {
-  monList: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
-  dayList: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-  today: new Date(),
-  monForChange: new Date().getMonth(),
-  activeDate: new Date(),
-  getFirstDay: (yy, mm) => new Date(yy, mm, 1), //달의 첫번째 요일
-  getLastDay: (yy, mm) => new Date(yy, mm + 1, 0), //달의 마지막 요일
-  nextMonth: function () {
-    let d = new Date();
-    d.setDate(1);
-    d.setMonth(++this.monForChange);
-    this.activeDate = d;
-    return d;
-  }, //다음 딜
-  prevMonth: function () {
-    let d = new Date();
-    d.setDate(1);
-    d.setMonth(--this.monForChange);
-    this.activeDate = d;
-    return d;
-  }, //전 달
-  addZero: (num) => (num < 10) ? '0' + num : num,
-  activeDTag: null,
-  getIndex: function (node) {
-    let index = 0;
-    while (node = node.previousElementSibling) {
-      index++;
+    monList: [
+        '01',
+        '02',
+        '03',
+        '04',
+        '05',
+        '06',
+        '07',
+        '08',
+        '09',
+        '10',
+        '11',
+        '12'
+    ],
+    dayList: [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+    ],
+    today: new Date(),
+    monForChange: new Date().getMonth(),
+    activeDate: new Date(),
+    getFirstDay: (yy, mm) => new Date(yy, mm, 1), //달의 첫번째 요일
+    getLastDay: (yy, mm) => new Date(yy, mm + 1, 0), //달의 마지막 요일
+    nextMonth: function () {
+        let d = new Date();
+        d.setDate(1);
+        d.setMonth(++this.monForChange);
+        this.activeDate = d;
+        return d;
+    }, //다음 딜
+    prevMonth: function () {
+        let d = new Date();
+        d.setDate(1);
+        d.setMonth(--this.monForChange);
+        this.activeDate = d;
+        return d;
+    }, //전 달
+    addZero: (num) => (num < 10)
+        ? '0' + num
+        : num,
+    activeDTag: null,
+    getIndex: function (node) {
+        let index = 0;
+        while (node = node.previousElementSibling) {
+            index++;
+        }
+        return index;
     }
-    return index;
-  }
 };
 
 const $calBody = document.querySelector('.cal-body');
@@ -42,75 +64,98 @@ const $btnPrev = document.querySelector('.left_btn');
 @param {number} date
 @param {number} dayIn
 */
-function loadDate (date, dayIn) {
-  document.querySelector('.day').textContent = date;
+function loadDate(date, dayIn) {
+    document
+        .querySelector('.day')
+        .textContent = date;
 }
 
 /*
-@param {date} fullDate  
+@param {date} fullDate
 */
 //달력을 동적으로 구현하는 코드
-function loadYYMM (fullDate) {
-  let yy = fullDate.getFullYear();
-  let mm = fullDate.getMonth();
-  let firstDay = init.getFirstDay(yy, mm);
-  let lastDay = init.getLastDay(yy, mm);
-  let markToday;  // for marking today date
-  
-  if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
-    markToday = init.today.getDate();
-  }
+function loadYYMM(fullDate) {
+    let yy = fullDate.getFullYear();
+    let mm = fullDate.getMonth();
+    let firstDay = init.getFirstDay(yy, mm);
+    let lastDay = init.getLastDay(yy, mm);
+    let markToday; // for marking today date
 
-  document.querySelector('.month').textContent = init.monList[mm];
-  document.querySelector('.year').textContent = yy;
-
-  let trtd = '';
-  let startCount;
-  let countDay = 0;
-  for (let i = 0; i < 6; i++) {
-    trtd += '<tr>';
-    for (let j = 0; j < 7; j++) {
-      if (i === 0 && !startCount && j === firstDay.getDay()) {
-        startCount = 1;
-      }
-      if (!startCount) {
-        trtd += '<td>'
-      } else {
-        let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
-        trtd += '<td class="day';
-        trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
-        trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
-      }
-      trtd += (startCount) ? ++countDay : '';
-      if (countDay === lastDay.getDate()) { 
-        startCount = 0; 
-      }
-      trtd += '</td>';
+    if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
+        markToday = init
+            .today
+            .getDate();
     }
-    trtd += '</tr>';
-  }
-  $calBody.innerHTML = trtd;
+
+    document
+        .querySelector('.month')
+        .textContent = init
+        .monList[mm];
+    document
+        .querySelector('.year')
+        .textContent = yy;
+
+    let trtd = '';
+    let startCount;
+    let countDay = 0;
+    for (let i = 0; i < 6; i++) {
+        trtd += '<tr>';
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && !startCount && j === firstDay.getDay()) {
+                startCount = 1;
+            }
+            if (!startCount) {
+                trtd += '<td>'
+            } else {
+                let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(
+                    countDay + 1
+                );
+                trtd += '<td class="day';
+                trtd += (markToday && markToday === countDay + 1)
+                    ? ' today" '
+                    : '"';
+                trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+            }
+            trtd += (startCount)
+                ? ++countDay
+                : '';
+            if (countDay === lastDay.getDate()) {
+                startCount = 0;
+            }
+            trtd += '</td>';
+        }
+        trtd += '</tr>';
+    }
+    $calBody.innerHTML = trtd;
 }
 
 /*
  @param {string} val
  */
-function createNewList (val) {
-  let id = new Date().getTime() + '';
-  let yy = init.activeDate.getFullYear();
-  let mm = init.activeDate.getMonth() + 1;
-  let dd = init.activeDate.getDate();
-  const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
+function createNewList(val) {
+    let id = new Date().getTime() + '';
+    let yy = init
+        .activeDate
+        .getFullYear();
+    let mm = init
+        .activeDate
+        .getMonth() + 1;
+    let dd = init
+        .activeDate
+        .getDate();
+    const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
 
-  let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
+    let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
 
-  let eventData = {};
-  eventData['date'] = date;
-  eventData['memo'] = val;
-  eventData['complete'] = false;
-  eventData['id'] = id;
-  init.event.push(eventData);
-  $todoList.appendChild(createLi(id, val, date));
+    let eventData = {};
+    eventData['date'] = date;
+    eventData['memo'] = val;
+    eventData['complete'] = false;
+    eventData['id'] = id;
+    init
+        .event
+        .push(eventData);
+    $todoList.appendChild(createLi(id, val, date));
 }
 
 loadYYMM(init.today);
@@ -121,14 +166,22 @@ $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
 
 //달력에 일을 화면에 구현해주는 코드
 $calBody.addEventListener('click', (e) => {
-  if (e.target.classList.contains('day')) {
-    if (init.activeDTag) {
-      init.activeDTag.classList.remove('day-active');
+    if (e.target.classList.contains('day')) {
+        if (init.activeDTag) {
+            init
+                .activeDTag
+                .classList
+                .remove('day-active');
+        }
+        let day = Number(e.target.textContent);
+        loadDate(day, e.target.cellIndex);
+        e
+            .target
+            .classList
+            .add('day-active');
+        init.activeDTag = e.target;
+        init
+            .activeDate
+            .setDate(day);
     }
-    let day = Number(e.target.textContent);
-    loadDate(day, e.target.cellIndex);
-    e.target.classList.add('day-active');
-    init.activeDTag = e.target;
-    init.activeDate.setDate(day);
-  }
 });

@@ -1,135 +1,156 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* nav */
 .nav {
-    height: 60px;
-    background-color: #FF5959;
-    display: flex;
+  height: 60px;
+  background-color: #FF5959;
+  display: flex;
 }
 
 .nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 15px 0px 15px 40px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 0px 15px 40px;
 }
 
 /* background */
 body {
-    background-color: #fff3e4;
+  background-color: #fff3e4;
 
 }
-main{/*한 줄씩 사용*/
-    display: block;
+
+main {
+  /*한 줄씩 사용*/
+  display: block;
 }
-.main1{
-    display: flex;
-    justify-content: center;
+
+.main1 {
+  display: flex;
+  justify-content: center;
 }
-.date{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    height: 80px;
-    background-color: #FCD69C;
-    border-radius: 40px 40px 40px 40px;
-    align-items: center;
+
+.date {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 80px;
+  background-color: #FCD69C;
+  border-radius: 40px 40px 40px 40px;
+  align-items: center;
 }
-.card-date{
-    margin-left: 30px;
-    margin-right: 30px;
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
+
+.card-date {
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
 }
-.left_btn{
-    background: url("/img/left.png");
-    width: 32px;
-    height: 32px;
-    border: 0;
-    margin-top: 3px;
-    margin-left: 10px;
+
+.left_btn {
+  background: url("/img/left.png");
+  width: 32px;
+  height: 32px;
+  border: 0;
+  margin-top: 3px;
+  margin-left: 10px;
 }
-.right_btn{
-    background: url("/img/right.png");
-    width: 32px;
-    height: 32px;
-    border: 0;
-    margin-top: 3px;
-    margin-right: 10px;
+
+.right_btn {
+  background: url("/img/right.png");
+  width: 32px;
+  height: 32px;
+  border: 0;
+  margin-top: 3px;
+  margin-right: 10px;
 }
+
 /* container 위치 잡기 */
-.list{
-    display: flex;
-    justify-content: center;
-}
-.target{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    height: 55px;
-    width: 185px;
-    background-color: #FCD69C;
-    border-radius: 40px 40px 40px 40px;
-    align-items: center;
-}
-.targetText{
-    font-size: 24px;
-    font-weight: bold;
-}
-.add_btn{
-    background: url("/img/add.png");
-    width: 24px;
-    height: 24px;
-    border: 0;
-    margin-left: 10px;
+.list {
+  display: flex;
+  justify-content: center;
 }
 
-  /* ======== Calendar ======== */
-  .my-calendar {
-    float: right;
-    margin-right: 20%;
-    width: 400px;
-    text-align: center;
-    font-weight: 800;
-    cursor: default;
-  }
-  .my-calendar .calendar-box {
-    width: 100%;
-  }
+.target {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 55px;
+  width: 185px;
+  background-color: #FCD69C;
+  border-radius: 40px 40px 40px 40px;
+  align-items: center;
+}
 
-  /*캘린더 크기*/
-  .cal-table {
-    width: 100%;
-  }
-  /*달력 요일*/
-  .cal-table th {
-    width: 14.2857%;
-    padding-bottom: 5px;
-    font-size: 16px;
-    font-weight: 900; /*굵기*/
-  }
-  /*달력 일*/
-  .cal-table td {
-    padding: 3px 0;
-    height: 50px;
-    font-size: 15px;
-    vertical-align: middle;
-  }
-  
-  /* 일이 클릭되었을 때 색*/
-  .cal-table td.today {
-    background: #96d84b;
-    border-radius: 30px 30px 30px 30px;
-    color: #fff;
-  }
-  .cal-table td.day-active {
-    background: #5fbff7;
-    border-radius: 30px 30px 30px 30px;
-    color: #fff;
-  }
+.targetText {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.add_btn {
+  background: url("/img/add.png");
+  width: 24px;
+  height: 24px;
+  border: 0;
+  margin-left: 10px;
+}
+
+/* ======== Calendar ======== */
+.my-calendar {
+  float: right;
+  margin-right: 10%;
+  width: 400px;
+  text-align: center;
+  font-weight: 800;
+  cursor: default;
+}
+
+.my-calendar .calendar-box {
+  width: 100%;
+}
+
+/*캘린더 크기*/
+.cal-table {
+  width: 100%;
+}
+
+/*달력 요일*/
+.cal-table th {
+  width: 14.2857%;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 900;
+  /*굵기*/
+}
+
+/*달력 일*/
+.cal-table td {
+  padding: 3px 0;
+  height: 50px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+/* 일이 클릭되었을 때 색*/
+.cal-table td.today {
+  background: #96d84b;
+  border-radius: 30px 30px 30px 30px;
+  color: #fff;
+}
+
+.cal-table td.day-active {
+  background: #5fbff7;
+  border-radius: 30px 30px 30px 30px;
+  color: #fff;
+}
+
+.pizzaimg {
+  width: 570px;
+  height: 500px;
+}
