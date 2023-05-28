@@ -65,11 +65,31 @@ const $btnPrev = document.querySelector('.left_btn');
 @param {number} dayIn
 */
 function loadDate(date, dayIn) {
-    document
-        .querySelector('.day')
-        .textContent = date;
+    document.querySelector('.day').textContent = addZero(date);
+}
+// chatgpt
+/*
+@param {number} num
+@return {string} 앞자리가 0으로 채워진 문자열
+*/
+function addZero(num) {
+    return (num < 10) ? '0' + num : String(num);
 }
 
+/*
+@param {date} fullDate
+@return {string} 년도와 월을 표시한 문자열
+*/
+function getYYMM(fullDate) {
+    let yy = fullDate.getFullYear();
+    let mm = fullDate.getMonth();
+    
+    if (yy < 10) {
+        yy = '0' + yy;
+    }
+    
+    return yy + '년 ' + addZero(mm + 1) + '월';
+}
 /*
 @param {date} fullDate
 */
@@ -79,21 +99,14 @@ function loadYYMM(fullDate) {
     let mm = fullDate.getMonth();
     let firstDay = init.getFirstDay(yy, mm);
     let lastDay = init.getLastDay(yy, mm);
-    let markToday; // for marking today date
+    let markToday; // 오늘 날짜 표시를 위한 변수
 
     if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
-        markToday = init
-            .today
-            .getDate();
+        markToday = init.today.getDate();
     }
 
-    document
-        .querySelector('.month')
-        .textContent = init
-        .monList[mm];
-    document
-        .querySelector('.year')
-        .textContent = yy;
+    document.querySelector('.month').textContent = init.monList[mm];
+    document.querySelector('.year').textContent = yy;
 
     let trtd = '';
     let startCount;
@@ -105,20 +118,14 @@ function loadYYMM(fullDate) {
                 startCount = 1;
             }
             if (!startCount) {
-                trtd += '<td>'
+                trtd += '<td>';
             } else {
-                let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(
-                    countDay + 1
-                );
+                let fullDate = yy + '년 ' + addZero(mm + 1) + '월 ' + addZero(countDay + 1) + '일';
                 trtd += '<td class="day';
-                trtd += (markToday && markToday === countDay + 1)
-                    ? ' today" '
-                    : '"';
+                trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
                 trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
             }
-            trtd += (startCount)
-                ? ++countDay
-                : '';
+            trtd += (startCount) ? ++countDay : '';
             if (countDay === lastDay.getDate()) {
                 startCount = 0;
             }
@@ -127,6 +134,58 @@ function loadYYMM(fullDate) {
         trtd += '</tr>';
     }
     $calBody.innerHTML = trtd;
+    // let yy = fullDate.getFullYear();
+    // let mm = fullDate.getMonth();
+    // let firstDay = init.getFirstDay(yy, mm);
+    // let lastDay = init.getLastDay(yy, mm);
+    // let markToday; // for marking today date
+
+    // if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
+    //     markToday = init
+    //         .today
+    //         .getDate();
+    // }
+
+    // document
+    //     .querySelector('.month')
+    //     .textContent = init
+    //     .monList[mm];
+    // document
+    //     .querySelector('.year')
+    //     .textContent = yy;
+
+    // let trtd = '';
+    // let startCount;
+    // let countDay = 0;
+    // for (let i = 0; i < 6; i++) {
+    //     trtd += '<tr>';
+    //     for (let j = 0; j < 7; j++) {
+    //         if (i === 0 && !startCount && j === firstDay.getDay()) {
+    //             startCount = 1;
+    //         }
+    //         if (!startCount) {
+    //             trtd += '<td>'
+    //         } else {
+    //             let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(
+    //                 countDay + 1
+    //             );
+    //             trtd += '<td class="day';
+    //             trtd += (markToday && markToday === countDay + 1)
+    //                 ? ' today" '
+    //                 : '"';
+    //             trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+    //         }
+    //         trtd += (startCount)
+    //             ? ++countDay
+    //             : '';
+    //         if (countDay === lastDay.getDate()) {
+    //             startCount = 0;
+    //         }
+    //         trtd += '</td>';
+    //     }
+    //     trtd += '</tr>';
+    // }
+    // $calBody.innerHTML = trtd;
 }
 
 /*
