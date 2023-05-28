@@ -102,60 +102,76 @@ main {
 }
 
 /* ======== Calendar ======== */
-.container{
+.container {
   float: right;
-  
 }
+
+.cal-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+}
+
 .my-calendar {
   width: 400px;
   margin-right: 20%;
-  text-align: center;
-  font-weight: 800;
-  cursor: default;
 }
 
-.my-calendar .calendar-box {
-  
-  width: 100%;
+.cal-title {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /*캘린더 크기*/
 .cal-table {
-  
-  width: 100%;
+  width: 400px;
+  height: 200px !important;
+}
+
+.cal-table th,
+.cal-table td {
+  text-align: center;
 }
 
 /*달력 요일*/
 .cal-table th {
   width: 14.2857%;
-  padding-bottom: 5px;
   font-size: 16px;
-  font-weight: 900;
-  /*굵기*/
+  font-weight: 800;
+  color: #707070;
 }
 
 /*달력 일*/
 .cal-table td {
-  padding: 3px 0;
-  height: 50px;
-  font-size: 15px;
+  padding: 12px 0;
+  height: 30px;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 500;
   vertical-align: middle;
 }
 
 /* 일이 클릭되었을 때 색*/
 .cal-table td.today {
   background: #96d84b;
-  border-radius: 30px 30px 30px 30px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
   color: #fff;
 }
 
 .cal-table td.day-active {
   background: #5fbff7;
-  border-radius: 30px 30px 30px 30px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
   color: #fff;
 }
 
+/* 피자 base */
 .pizzaimg {
-  width: 600px;
-  height: 500px;
+  width: 560px;
+  height: 430px;
 }
