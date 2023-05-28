@@ -102,21 +102,26 @@ main {
 }
 
 /* ======== Calendar ======== */
-.my-calendar {
+.container{
   float: right;
-  margin-right: 10%;
+  
+}
+.my-calendar {
   width: 400px;
+  margin-right: 20%;
   text-align: center;
   font-weight: 800;
   cursor: default;
 }
 
 .my-calendar .calendar-box {
+  
   width: 100%;
 }
 
 /*캘린더 크기*/
 .cal-table {
+  
   width: 100%;
 }
 
@@ -151,6 +156,6 @@ main {
 }
 
 .pizzaimg {
-  width: 570px;
+  width: 600px;
   height: 500px;
 }
