@@ -93,8 +93,23 @@ main {
   border-radius: 40px;
   align-items: center;
 }
+.target2 {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 55px;
+  width: 185px;
+  background-color: #FCD69C;
+  border-radius: 40px;
+  align-items: center;
+}
 
 .targetText {
+  font-size: 24px;
+  font-weight: bold;
+}
+.targetText2 {
   font-size: 24px;
   font-weight: bold;
 }
