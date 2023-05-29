@@ -1,5 +1,4 @@
 const targetaddbtn = document.getElementById("add_btn");
-
 targetaddbtn.addEventListener("click", () => {
   /* 
         <div class="target" id="target">
@@ -10,6 +9,7 @@ targetaddbtn.addEventListener("click", () => {
   target2.id = "target2";
   target2.className = "target2";
   const targetText = document.createElement("p");
+  targetText.innerHTML = "대충!~`~~~ 긴 내용";
   targetText.id = "targetText2";
   targetText.className = "targetText2";
   const list_add_btn = document.createElement("input");
@@ -17,10 +17,22 @@ targetaddbtn.addEventListener("click", () => {
   list_add_btn.className = "list_add_btn";
 
   //부모요소에 추가하기
-  document.body.appendChild(target);
+  document.body.appendChild(target2);
   document.body.appendChild(targetText);
   document.body.appendChild(list_add_btn);
   target2.appendChild(targetText);
   target2.appendChild(list_add_btn);
+
+
+  targetText.addEventListener("click", () => {
+    tarText();
+  })
 });
+function tarText(){
+  //목표 수정하기
+  alert("안녕");
+}
+
+
+
 
