@@ -79,11 +79,10 @@ main {
   width: 360px;
   height: 100%;
   margin-top: 30px;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .target {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -93,8 +92,8 @@ main {
   border-radius: 40px;
   align-items: center;
 }
+
 .target2 {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -133,7 +132,7 @@ main {
 /* ======== Calendar ======== */
 .container {
   float: right;
-  margin-right: 10%;
+  margin-right: 15%;
 }
 
 .cal-wrapper {
@@ -145,6 +144,9 @@ main {
 }
 
 .my-calendar {
+  border: solid 2px #FCD69C;
+  border-radius: 8%;
+  padding-top: 10px;
   width: 400px;
   margin-right: 20%;
 }
@@ -198,6 +200,7 @@ main {
 
 /* 피자 base */
 .pizzaimg {
+  margin-top: 30px;
   width: 380px;
-  height: 280px;
+  height: 290px;
 }
