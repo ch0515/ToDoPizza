@@ -1,4 +1,5 @@
 const targetaddbtn = document.getElementById("add_btn");
+
 targetaddbtn.addEventListener("click", () => {
   const target2 = document.createElement("div");
   target2.id = "target2";
@@ -73,4 +74,5 @@ targetaddbtn.addEventListener("click", () => {
       cancelAction();
     }
   });
+  
 });

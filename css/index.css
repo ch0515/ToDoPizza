@@ -10,12 +10,22 @@
   display: flex;
 }
 
-.nav a {
+.nav a, i {
   text-decoration: none;
   color: white;
-  font-size: 20px;
   font-weight: 500;
+}
+
+.nav a {
+  font-size: 20px;
   padding: 15px 0px 15px 40px;
+}
+
+.nav i {
+  font-size: 40px;
+  position: absolute;
+  padding-top: 11px;
+  right: 15px;
 }
 
 /* background */
@@ -37,6 +47,7 @@ main {
   display: flex;
   justify-content: center;
 }
+
 .date {
   display: flex;
   justify-content: center;
@@ -74,13 +85,20 @@ main {
 
 /* container 위치 잡기 */
 .list {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   width: 360px;
   height: 100%;
   margin-top: 30px;
   margin-left: 15%;
+  /* list만 스크롤 가능하게 */
+  /* overflow: scroll; */
 }
+
+/* Chrome 및 Safari 용 스크롤바 스타일 숨기기 */
+/* .list::-webkit-scrollbar {
+  display: none; 
+} */
 
 .target {
   display: flex;
@@ -102,6 +120,7 @@ main {
   background-color: #FCD69C;
   border-radius: 40px;
   align-items: center;
+  margin-left: 15%;
 }
 
 .targetText {
@@ -204,3 +223,4 @@ main {
   width: 380px;
   height: 290px;
 }
+
