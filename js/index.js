@@ -51,6 +51,7 @@ targetaddbtn.addEventListener("click", () => {
   // 추가한 p 요소에 대한 참조 유지
   target2.appendChild(truncatedTextElement);
 
+
   // 목표 삭제하기 + 후에 리스트 삭제하기
   target2.addEventListener("contextmenu", function(event) {
     event.preventDefault(); // 기본 우클릭 메뉴 표시 방지
@@ -75,4 +76,28 @@ targetaddbtn.addEventListener("click", () => {
     }
   });
   
+  // 목표 수정하기
+  target2.addEventListener("dblclick", function(event) {
+    const newGoal = prompt('새로운 목표를 입력하세요:');
+    if (newGoal !== null) {
+      // 확인 버튼을 눌렀을 때의 동작 정의
+      function confirmAction() {
+        targetText.textContent = newGoal;
+      }
+    }
+  
+  
+    // 아니요 버튼을 눌렀을 때의 동작 정의
+    function cancelAction() {
+      // 아무 동작 없음
+    }
+  
+    // 경고창 표시
+    const result = confirm("목표를 수정하시겠습니까?");
+    if (result) {
+      confirmAction();
+    } else {
+      cancelAction();
+    }
+  });
 });
