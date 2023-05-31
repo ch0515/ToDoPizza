@@ -8,7 +8,7 @@ targetaddbtn.addEventListener("click", () => {
   const truncatedTextId = "truncatedText"; // 잘려서 보이는 p 요소에 지정할 아이디
   
   const targetText = document.createElement("p");
-  targetText.innerHTML = "안녕하세요~~~";
+  targetText.innerHTML = "목표수정";
   // 목표 글씨 전체 보이게 하기
   targetText.setAttribute("title", targetText.innerHTML);
   targetText.id = "targetText2";
@@ -100,4 +100,20 @@ targetaddbtn.addEventListener("click", () => {
       cancelAction();
     }
   });
+  list_add_btn.addEventListener("click", function(){
+    var container = document.createElement("div");
+    container.id = "checkboxContainer";
+    // 체크박스 요소 생성
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    // 체크박스에 대한 레이블 생성
+    var label = document.createElement("label");
+    label.appendChild(document.createTextNode("체크박스"));
+
+    // 체크박스와 레이블을 컨테이너에 추가
+    container.appendChild(checkbox);
+    container.appendChild(label);
+  });
 });
+
