@@ -84,22 +84,25 @@ targetaddbtn.addEventListener("click", () => {
       function confirmAction() {
         targetText.textContent = newGoal;
       }
-    }
-  
-  
-    // 아니요 버튼을 눌렀을 때의 동작 정의
-    function cancelAction() {
-      // 아무 동작 없음
-    }
-  
-    // 경고창 표시
-    const result = confirm("목표를 수정하시겠습니까?");
-    if (result) {
-      confirmAction();
+      // 경고창 표시
+      const result = confirm("목표를 수정하시겠습니까?");
+      if (result) {
+        confirmAction();
+      } else {
+        cancelAction();
+      }
     } else {
-      cancelAction();
+      // 아니요 버튼을 눌렀을 때의 동작 정의
+      function cancelAction() {
+        // 아무 동작 없음
+      }
+
     }
+  
+  
+  
   });
+  
   list_add_btn.addEventListener("click", function(){
     var container = document.createElement("div");
     container.id = "checkboxContainer";
