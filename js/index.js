@@ -1,6 +1,8 @@
 const targetaddbtn = document.getElementById("add_btn");
 
 targetaddbtn.addEventListener("click", () => {
+  const container = document.createElement("div"); // container 요소 추가
+  container.id = "container"; // container 요소의 아이디 설정
   const target2 = document.createElement("div");
   target2.id = "target2";
   target2.className = "target2";
@@ -8,7 +10,7 @@ targetaddbtn.addEventListener("click", () => {
   const truncatedTextId = "truncatedText"; // 잘려서 보이는 p 요소에 지정할 아이디
   
   const targetText = document.createElement("p");
-  targetText.innerHTML = "목표수정";
+  targetText.innerHTML = "목표 수정";
   // 목표 글씨 전체 보이게 하기
   targetText.setAttribute("title", targetText.innerHTML);
   targetText.id = "targetText2";
@@ -18,7 +20,7 @@ targetaddbtn.addEventListener("click", () => {
   list_add_btn.className = "list_add_btn";
 
   // 글자 잘라내기
-  const maxLength = 4; // 표시할 최대 글자 수
+  const maxLength = 5; // 표시할 최대 글자 수
   const ellipsis = ".."; // 생략 부호
 
   // targetText 요소의 내용을 가져와서 maxLength를 초과하는 경우 잘라내는 함수
@@ -31,9 +33,8 @@ targetaddbtn.addEventListener("click", () => {
   }
 
   // 부모 요소에 추가하기
-  document.body.appendChild(target2);
-  document.body.appendChild(targetText);
-  document.body.appendChild(list_add_btn);
+  container.appendChild(target2); // target2를 container에 추가
+  document.body.appendChild(container); // container를 body에 추가
   target2.appendChild(targetText);
   target2.appendChild(list_add_btn);
 
@@ -96,27 +97,27 @@ targetaddbtn.addEventListener("click", () => {
       function cancelAction() {
         // 아무 동작 없음
       }
-
     }
-  
-  
-  
   });
   
-  list_add_btn.addEventListener("click", function(){
-    var container = document.createElement("div");
-    container.id = "checkboxContainer";
+  // 리스트 추가하기
+  list_add_btn.addEventListener("click", function () {
+    var checkboxContainer = document.createElement("div");
+    checkboxContainer.id = "checkboxContainer";
     // 체크박스 요소 생성
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 
     // 체크박스에 대한 레이블 생성
     var label = document.createElement("label");
-    label.appendChild(document.createTextNode("체크박스"));
+    var labelText = prompt("리스트 텍스트를 입력하세요:");
+    label.appendChild(document.createTextNode(labelText));
 
     // 체크박스와 레이블을 컨테이너에 추가
-    container.appendChild(checkbox);
-    container.appendChild(label);
+    checkboxContainer.appendChild(checkbox);
+    checkboxContainer.appendChild(label);
+
+    // 컨테이너를 container 아래에 추가
+    container.appendChild(checkboxContainer);
   });
 });
-

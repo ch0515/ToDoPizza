@@ -127,6 +127,7 @@ main {
   font-size: 24px;
   font-weight: bold;
 }
+
 .targetText2 {
   font-size: 24px;
   font-weight: bold;
@@ -149,6 +150,16 @@ main {
   margin-left: 10px;
 }
 
+#checkboxContainer {
+  margin-top: 20px;
+  margin-left: 20%;
+  font-size: 20px;
+}
+
+input[type=checkbox] {
+  transform : scale(1.2);
+  margin-right: 5px;
+}
 /* ======== Calendar ======== */
 .container {
   float: right;
