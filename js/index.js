@@ -104,22 +104,24 @@ targetaddbtn.addEventListener("click", () => {
   
   // 리스트 추가하기
   list_add_btn.addEventListener("click", function () {
-    var checkboxContainer = document.createElement("div");
-    checkboxContainer.id = "checkboxContainer";
-    // 체크박스 요소 생성
-    var checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-
-    // 체크박스에 대한 레이블 생성
-    var label = document.createElement("label");
     var labelText = prompt("리스트 텍스트를 입력하세요:");
-    label.appendChild(document.createTextNode(labelText));
+    if (labelText !== null && labelText !== "") {
+      var checkboxContainer = document.createElement("div");
+      checkboxContainer.id = "checkboxContainer";
+      // 체크박스 요소 생성
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
 
-    // 체크박스와 레이블을 컨테이너에 추가
-    checkboxContainer.appendChild(checkbox);
-    checkboxContainer.appendChild(label);
+      // 체크박스에 대한 레이블 생성
+      var label = document.createElement("label");
+      label.appendChild(document.createTextNode(labelText));
 
-    // 컨테이너를 container 아래에 추가
-    container.appendChild(checkboxContainer);
+      // 체크박스와 레이블을 컨테이너에 추가
+      checkboxContainer.appendChild(checkbox);
+      checkboxContainer.appendChild(label);
+
+      // 컨테이너를 container 아래에 추가
+      container.appendChild(checkboxContainer);
+    }
   });
 });
