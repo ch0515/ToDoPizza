@@ -23,6 +23,11 @@ targetaddbtn.addEventListener("click", () => {
   const maxLength = 5; // 표시할 최대 글자 수
   const ellipsis = ".."; // 생략 부호
 
+  list_add_btn.addEventListener("click", function(){
+    const listText = document.createElement('p');
+    listText.innerHTML = "리스트 수정"
+    document.body.appendChild(listText);
+  });
   // targetText 요소의 내용을 가져와서 maxLength를 초과하는 경우 잘라내는 함수
   function truncateText() {
     const text = targetText.innerHTML;
@@ -33,8 +38,14 @@ targetaddbtn.addEventListener("click", () => {
   }
 
   // 부모 요소에 추가하기
+<<<<<<< HEAD
   container.appendChild(target2); // target2를 container에 추가
   document.body.appendChild(container); // container를 body에 추가
+=======
+  document.body.appenDdChild(target2);
+  document.body.appendChild(targetText);
+  document.body.appendChild(list_add_btn);
+>>>>>>> cb2ee6ef466f102466a169bd1e8c7a8e2dc1a40e
   target2.appendChild(targetText);
   target2.appendChild(list_add_btn);
 
@@ -102,6 +113,7 @@ targetaddbtn.addEventListener("click", () => {
     }
   });
   
+<<<<<<< HEAD
   // 리스트 추가하기
   list_add_btn.addEventListener("click", function () {
     var checkboxContainer = document.createElement("div");
@@ -122,4 +134,7 @@ targetaddbtn.addEventListener("click", () => {
     // 컨테이너를 container 아래에 추가
     container.appendChild(checkboxContainer);
   });
+=======
+  
+>>>>>>> cb2ee6ef466f102466a169bd1e8c7a8e2dc1a40e
 });
