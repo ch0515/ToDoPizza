@@ -78,6 +78,7 @@ targetaddbtn.addEventListener("click", () => {
       cancelAction();
     }
   });
+
   
   // 목표 수정하기
   target2.addEventListener("dblclick", function(event) {
