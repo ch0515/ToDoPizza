@@ -56,18 +56,20 @@ targetaddbtn.addEventListener("click", () => {
   // 목표 삭제하기 + 후에 리스트 삭제하기
   target2.addEventListener("contextmenu", function(event) {
     event.preventDefault(); // 기본 우클릭 메뉴 표시 방지
-  
+
     // 확인 버튼을 눌렀을 때의 동작 정의
     function confirmAction() {
       // target2 요소 삭제
       target2.parentNode.removeChild(target2);
+      // 리스트 요소 삭제
+      container.parentNode.removeChild(container);
     }
-  
+
     // 아니요 버튼을 눌렀을 때의 동작 정의
     function cancelAction() {
       // 아무 동작 없음
     }
-  
+
     // 경고창 표시
     const result = confirm("목표를 삭제하시겠습니까?");
     if (result) {
