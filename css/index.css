@@ -160,6 +160,19 @@ input[type=checkbox] {
   transform : scale(1.2);
   margin-right: 5px;
 }
+
+/* select option */
+/* select#sel option {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+select#sel option[value=""] {
+  background-image: none;
+} */
+
+
 /* ======== Calendar ======== */
 .container {
   float: right;

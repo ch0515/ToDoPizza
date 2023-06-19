@@ -1,6 +1,38 @@
 const targetaddbtn = document.getElementById("add_btn");
 
 targetaddbtn.addEventListener("click", () => {
+  const popupWindow = window.open('', 'Image Selector', 'width=500,height=400');
+  const imageButtonsContainer = document.createElement('div');
+
+  const images = [
+    { src: './img/tomato.png', alt: "tomato"},
+    { src: './img/ham.png', alt: "ham"},
+    // 추가 이미지들
+  ];
+
+  images.forEach((image, index) => {
+    const imageButton = document.createElement('button');
+    imageButton.className = 'image-button';
+    imageButton.dataset.index = index;
+
+    const img = document.createElement('img');
+    img.src = image.src;
+    img.alt = image.alt;
+
+    imageButton.appendChild(img);
+    imageButtonsContainer.appendChild(imageButton);
+  });
+  popupWindow.document.body.appendChild(imageButtonsContainer);
+
+      imageButtonsContainer.addEventListener('click', (event) => {
+        const selectedImageIndex = event.target.dataset.index;
+        if (selectedImageIndex) {
+          // 선택된 이미지 처리
+          console.log('Selected Image Index:', selectedImageIndex);
+          // 여기서 선택된 이미지를 원하는 방식으로 활용할 수 있습니다.
+        }
+        popupWindow.close();
+      });
   const container = document.createElement("div"); // container 요소 추가
   container.id = "container"; // container 요소의 아이디 설정
   const target2 = document.createElement("div");
