@@ -159,6 +159,7 @@ main {
 input[type=checkbox] {
   transform : scale(1.2);
   margin-right: 5px;
+  accent-color: #5887BA;
 }
 
 /* select option */
