@@ -47,6 +47,7 @@ targetaddbtn.addEventListener("click", () => {
 
   const targetText = document.createElement("p");
   targetText.innerHTML = "목표 수정";
+  // 목표 글씨 전체 보이게 하기
   targetText.setAttribute("title", targetText.innerHTML);
   targetText.id = "targetText2";
   targetText.className = "targetText2";
@@ -66,11 +67,13 @@ targetaddbtn.addEventListener("click", () => {
     }
   }
 
+  // 부모 요소에 추가하기
   target2.appendChild(toppingimg);
   container.appendChild(target2);
   document.body.appendChild(container);
   target2.appendChild(targetText);
   target2.appendChild(list_add_btn);
+
 
   targetText.addEventListener("click", () => {
     truncateText();
@@ -78,20 +81,24 @@ targetaddbtn.addEventListener("click", () => {
 
   truncateText();
 
+  // 잘려서 보이는 p 요소에 아이디 설정
   const truncatedTextElement = document.createElement("p");
   truncatedTextElement.id = truncatedTextId;
+
+  // p에 대한 참조 유지
   target2.appendChild(truncatedTextElement);
 
-  target2.addEventListener("contextmenu", function(event) {
+  // 목표 삭제하기
+  target2.addEventListener("contextmenu", function (event) {
     event.preventDefault();
-    
+
     function confirmAction() {
       target2.parentNode.removeChild(target2);
       container.parentNode.removeChild(container);
     }
 
     function cancelAction() {
-      // No action needed
+      // 동작 없음
     }
 
     const result = confirm("목표를 삭제하시겠습니까?");
@@ -102,7 +109,7 @@ targetaddbtn.addEventListener("click", () => {
     }
   });
 
-  target2.addEventListener("dblclick", function(event) {
+  target2.addEventListener("dblclick", function (event) {
     const newGoal = prompt('새로운 목표를 입력하세요:');
     if (newGoal !== null) {
       function confirmAction() {
@@ -116,7 +123,7 @@ targetaddbtn.addEventListener("click", () => {
       }
     } else {
       function cancelAction() {
-        // No action needed
+        // 동작 없음
       }
     }
   });
@@ -144,16 +151,45 @@ targetaddbtn.addEventListener("click", () => {
   container.appendChild(toppingContainer);
 
   list_add_btn.addEventListener("click", function () {
-    const labelText = prompt("리스트 텍스트를 입력하세요:");
+    var labelText = prompt("리스트 텍스트를 입력하세요:");
     if (labelText !== null && labelText !== "") {
-      const checkboxContainer = document.createElement("div");
+      var checkboxContainer = document.createElement("div");
       checkboxContainer.id = "checkboxContainer";
-      const checkbox = document.createElement("input");
+      // 체크박스 요소 생성
+      var checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      const label = document.createElement("label");
+  
+      // 체크박스에 대한 레이블 생성
+      var label = document.createElement("label");
       label.appendChild(document.createTextNode(labelText));
+  
+      // 체크박스와 레이블을 컨테이너에 추가
       checkboxContainer.appendChild(checkbox);
       checkboxContainer.appendChild(label);
+  
+      // 컨테이너를 container 아래에 추가
+      container.appendChild(checkboxContainer);
+    }
+  });
+  // 리스트 추가하기
+  list_add_btn.addEventListener("click", function () {
+    var labelText = prompt("리스트 텍스트를 입력하세요:");
+    if (labelText !== null && labelText !== "") {
+      var checkboxContainer = document.createElement("div");
+      checkboxContainer.id = "checkboxContainer";
+      // 체크박스 요소 생성
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      // 체크박스에 대한 레이블 생성
+      var label = document.createElement("label");
+      label.appendChild(document.createTextNode(labelText));
+
+      // 체크박스와 레이블을 컨테이너에 추가
+      checkboxContainer.appendChild(checkbox);
+      checkboxContainer.appendChild(label);
+
+      // 컨테이너를 container 아래에 추가
       container.appendChild(checkboxContainer);
     }
   });

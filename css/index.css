@@ -90,18 +90,15 @@ main {
   justify-content: center; */
   width: 360px;
   height: 100%;
-  margin-top: 30px;
-  margin-left: 20%;
+  margin-top: 40px;
+  margin-left: 22%;
   /* list만 스크롤 가능하게 */
   /* overflow: scroll; */
 }
 .toppingimg{
   width: 30px;
   height: 30px;
-}
-.dropdown{
-  position : relative;
-  display : inline-block;
+  margin-right: 10px;
 }
 
 .dropbtn{
@@ -118,13 +115,13 @@ main {
 .dropdown-content{
   display : none;
   position : absolute;
-  z-index : 1; /*다른 요소들보다 앞에 배치*/
+  z-index : 1;
   font-weight: 200;
   background-color: #f9f9f9;
   min-width : 30px;
 }
 
-.dropdown-content a{
+/* .dropdown-content a{
   display : block;
   text-decoration : none;
   color : rgb(37, 37, 37);
@@ -138,7 +135,7 @@ main {
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
+} */
 
 /* Chrome 및 Safari 용 스크롤바 스타일 숨기기 */
 /* .list::-webkit-scrollbar {
@@ -161,11 +158,11 @@ main {
   justify-content: center;
   margin-top: 20px;
   height: 55px;
-  width: 185px;
+  width: 220px;
   background-color: #FCD69C;
   border-radius: 40px;
   align-items: center;
-  margin-left: 20%;
+  margin-left: 22%;
 }
 
 .targetText {
@@ -197,7 +194,7 @@ main {
 
 #checkboxContainer {
   margin-top: 15px;
-  margin-left: 22%;
+  margin-left: 20%;
   font-size: 20px;
 }
 
@@ -226,7 +223,7 @@ select#sel option[value=""] {
 /* ======== Calendar ======== */
 .container {
   float: right;
-  margin-right: 20%;
+  margin-right: 22%;
 }
 
 .cal-wrapper {
