@@ -53,6 +53,7 @@ main {
   justify-content: center;
   margin-top: 20px;
   height: 80px;
+  width: 400px;
   background-color: #FCD69C;
   border-radius: 40px 40px 40px 40px;
   align-items: center;
@@ -71,7 +72,7 @@ main {
   height: 32px;
   border: 0;
   margin-top: 3px;
-  margin-left: 10px;
+  margin-right: 10px
 }
 
 .right_btn {
@@ -80,7 +81,7 @@ main {
   height: 32px;
   border: 0;
   margin-top: 3px;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 /* container 위치 잡기 */
@@ -90,7 +91,7 @@ main {
   width: 360px;
   height: 100%;
   margin-top: 30px;
-  margin-left: 15%;
+  margin-left: 20%;
   /* list만 스크롤 가능하게 */
   /* overflow: scroll; */
 }
@@ -164,7 +165,7 @@ main {
   background-color: #FCD69C;
   border-radius: 40px;
   align-items: center;
-  margin-left: 15%;
+  margin-left: 20%;
 }
 
 .targetText {
@@ -196,7 +197,7 @@ main {
 
 #checkboxContainer {
   margin-top: 15px;
-  margin-left: 17%;
+  margin-left: 22%;
   font-size: 20px;
 }
 
@@ -204,6 +205,10 @@ input[type=checkbox] {
   transform : scale(1.2);
   margin-right: 5px;
   accent-color: #5887BA;
+}
+
+.toppingimg:hover {
+  cursor: pointer;
 }
 
 /* select option */
@@ -221,7 +226,7 @@ select#sel option[value=""] {
 /* ======== Calendar ======== */
 .container {
   float: right;
-  margin-right: 15%;
+  margin-right: 20%;
 }
 
 .cal-wrapper {
@@ -233,7 +238,7 @@ select#sel option[value=""] {
 }
 
 .my-calendar {
-  border: solid 2px #FCD69C;
+  border: solid 3px #FCD69C;
   border-radius: 8%;
   padding-top: 10px;
   width: 400px;
@@ -289,8 +294,8 @@ select#sel option[value=""] {
 
 /* 피자 base */
 .pizzaimg {
-  margin-top: 30px;
-  width: 380px;
-  height: 290px;
+  margin-top: 25px;
+  width: 440px;
+  height: 340px;
 }
 
