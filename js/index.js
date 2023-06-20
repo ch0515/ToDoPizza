@@ -12,6 +12,11 @@ targetaddbtn.addEventListener("click", () => {
   const target2 = document.createElement("div");
   target2.id = "target2";
   target2.className = "target2";
+  const toppingimg = document.createElement('img');
+  toppingimg.id = "toppingimg";
+  toppingimg.className = "toppingimg";
+  toppingimg.src = '../img/ham.png'; //이미지 추가해주기
+  
   
   const truncatedTextId = "truncatedText"; // 잘려서 보이는 p 요소에 지정할 아이디
   
@@ -39,10 +44,12 @@ targetaddbtn.addEventListener("click", () => {
   }
 
   // 부모 요소에 추가하기
+  target2.appendChild(toppingimg);
   container.appendChild(target2); // target2를 container에 추가
   document.body.appendChild(container); // container를 body에 추가
   target2.appendChild(targetText);
   target2.appendChild(list_add_btn);
+  
 
   targetText.addEventListener("click", () => {
     truncateText();
