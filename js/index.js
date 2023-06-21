@@ -68,7 +68,6 @@ targetaddbtn.addEventListener("click", () => {
   }
 
   // 부모 요소에 추가하기
-
   document.body.appendChild(container);
   container.appendChild(target2);
   target2.appendChild(toppingimg);
@@ -128,7 +127,53 @@ targetaddbtn.addEventListener("click", () => {
       }
     }
   });
-  
+
+  // 리스트&목표 완료 토핑 올라가는 이벤트
+  // 리스트의 개수 추적
+  var listCount = 0;
+
+  // 리스트 개수만큼 업데이트
+  function updateListCount(change) {
+    listCount += change;
+    console.log(listCount);
+  }
+
+  // 체크박스 상태 변경을 체크함
+  function handleCheckboxChange() {
+    var checkboxes = document.querySelectorAll('.checkbox');
+    var allChecked = true;
+
+    checkboxes.forEach(function (checkbox) {
+      if (!checkbox.checked) {
+        allChecked = false;
+      }
+    });
+
+    if (allChecked) {
+      // 알맞은 toppings visible~! 토핑 나타나게!!
+      // 체크박스가 모두 체크되었을 때!
+
+      // .toppings 이미지 요소들을 가져옵니다.
+      var toppings = document.querySelectorAll('.toppings');
+
+      // 선택된 토핑 번호에 해당하는 이미지들을 표시하고, 나머지 이미지들은 숨깁니다.
+      toppings.forEach(function (topping) {
+        var toppingNumber = topping.dataset.toppingNumber;
+
+        if (toppingNumber === selectedTopping) {
+          topping.style.visibility = "visible";
+        } else {
+          topping.style.visibility = "hidden";
+        }
+      });
+    
+    } else {
+      // 체크박스가 하나라도 체크가 덜 되었을 때!
+      topping.style.visibility = "hidden";
+    }
+  }
+
+
   // 리스트 추가
   list_add_btn.addEventListener("click", function () {
     var labelText = prompt("리스트 텍스트를 입력하세요:");
@@ -138,32 +183,39 @@ targetaddbtn.addEventListener("click", () => {
       // 체크박스 요소 생성
       var checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-  
+      checkbox.classList.add('checkbox'); // 클래스 추가
+
       // 체크박스에 대한 레이블 생성
       var label = document.createElement("label");
       label.appendChild(document.createTextNode(labelText));
-  
+
       // 체크박스와 레이블을 컨테이너에 추가
       checkboxContainer.appendChild(checkbox);
       checkboxContainer.appendChild(label);
-  
+
       // 컨테이너를 container 아래에 추가
       container.appendChild(checkboxContainer);
+
+      // 리스트 개수 업데이트
+      updateListCount(1);
+
+      // 체크박스 상태 변경 처리
+      checkbox.addEventListener('change', handleCheckboxChange);
     }
-    
-    
+
+
     // 리스트 삭제
     checkboxContainer.addEventListener("contextmenu", function (event) {
       event.preventDefault();
-  
+
       function confirmAction() {
         checkboxContainer.parentNode.removeChild(checkboxContainer);
       }
-  
+
       function cancelAction() {
         // 동작 없음
       }
-  
+
       const result = confirm("리스트를 삭제하시겠습니까?");
       if (result) {
         confirmAction();
@@ -174,23 +226,23 @@ targetaddbtn.addEventListener("click", () => {
 
     // 리스트 수정
     checkboxContainer.addEventListener("dblclick", function (event) {
-        const newGoal = prompt('새로운 리스트를 입력하세요:');
-        if (newGoal !== null) {
-          function confirmAction() {
-            label.textContent = newGoal;
-          }
-    
-          const result = confirm("리스트를 수정하시겠습니까?");
-          if (result) {
-            confirmAction();
-          } else {
-            cancelAction();
-          }
-        } else {
-          function cancelAction() {
-            // 동작 없음
-          }
+      const newGoal = prompt('새로운 리스트를 입력하세요:');
+      if (newGoal !== null) {
+        function confirmAction() {
+          label.textContent = newGoal;
         }
+
+        const result = confirm("리스트를 수정하시겠습니까?");
+        if (result) {
+          confirmAction();
+        } else {
+          cancelAction();
+        }
+      } else {
+        function cancelAction() {
+          // 동작 없음
+        }
+      }
     });
   });
 });

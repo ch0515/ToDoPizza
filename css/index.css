@@ -98,7 +98,7 @@ main {
 .toppingimg{
   width: 30px;
   height: 30px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .dropbtn{
@@ -172,8 +172,9 @@ main {
 
 .targetText2 {
   font-size: 24px;
-  font-weight: bold;
-  width: 104.44px;
+  font-weight: bolder;
+  width: 140px;
+  margin-right: 3px;
 }
 
 .add_btn {
@@ -189,7 +190,7 @@ main {
   width: 24px;
   height: 24px;
   border: 0;
-  margin-left: 10px;
+  margin-right: 5px;
 }
 
 #checkboxContainer {
@@ -308,42 +309,49 @@ select#sel option[value=""] {
 
 /* 각 토핑의 위치 조정 */
 .toppings:nth-child(1) {
+  /* 양송이 */
   width: 190px;
   top: 735px;
   right: 29%;
 }
 
 .toppings:nth-child(2) {
+  /* 토마토 */
   width: 210px;
   top: 735px;
   right: 28%;
 }
 
 .toppings:nth-child(3) {
+  /* 햄 */
   width: 200px;
   top: 730px;
   right: 29%;
 }
 
 .toppings:nth-child(4) {
+  /* 파프리카 */
   width: 230px;
   top: 720px;
   right: 28%;
 }
 
 .toppings:nth-child(5) {
+  /* 양파 */
   width: 200px;
   top: 730px;
   right: 29%;
 }
 
 .toppings:nth-child(6) {
+  /* 피망 */
   width: 210px;
   top: 720px;
   right: 29%;
 }
 
 .toppings:nth-child(7) {
+  /* 올리브 */
   width: 160px;
   top: 747px;
   right: 30%;
