@@ -15,28 +15,36 @@ targetaddbtn.addEventListener("click", () => {
   const toppingimg = document.createElement('img');
   toppingimg.id = "toppingimg";
   toppingimg.className = "toppingimg";
+  let newImgsrc;
 
   switch (selectedTopping) {
     case "1":
       toppingimg.src = '../img/ham.png';
+      newImgsrc = '../img/hamT.png';
       break;
     case "2":
       toppingimg.src = '../img/mushroom.png';
+      newImgsrc = '../img/mushroomT.png';
       break;
     case "3":
       toppingimg.src = '../img/olive.png';
+      newImgsrc = '../img/oliveT.png';
       break;
     case "4":
       toppingimg.src = '../img/onion.png';
+      newImgsrc = '../img/onionT.png';
       break;
     case "5":
       toppingimg.src = '../img/paprika.png';
+      newImgsrc = '../img/paprika.png';
       break;
     case "6":
       toppingimg.src = '../img/pimento.png';
+      newImgsrc = '../img/pimentoT.png';
       break;
     case "7":
       toppingimg.src = '../img/tomato.png';
+      newImgsrc = '../img/tomatoT.png';
       break;
     default:
       alert("올바른 토핑 번호를 입력하세요.");
@@ -141,6 +149,7 @@ targetaddbtn.addEventListener("click", () => {
   // 체크박스 상태 변경을 체크함
   function handleCheckboxChange() {
     var checkboxes = document.querySelectorAll('.checkbox');
+    var pizza = document.getElementById('pizza');
     var allChecked = true;
 
     checkboxes.forEach(function (checkbox) {
@@ -161,9 +170,19 @@ targetaddbtn.addEventListener("click", () => {
         var toppingNumber = topping.dataset.toppingNumber;
 
         if (toppingNumber === selectedTopping) {
-          topping.style.visibility = "visible";
+          var newImg = document.createElement("img");
+          newImg.id = "newImg";
+          newImg.className = "newImg";
+          newImg.src = newImgsrc;
+          newImg.style.visibility = "visible";
+          pizza.appendChild(newImg);
         } else {
-          topping.style.visibility = "hidden";
+          var newImg = document.createElement("img");
+          newImg.id = "newImg";
+          newImg.className = "newImg";
+          newImg.src = newImgsrc;
+          newImg.style.visibility = "hidden";
+          pizza.appendChild(newImg);
         }
       });
 

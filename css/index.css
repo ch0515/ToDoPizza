@@ -298,7 +298,7 @@ select#sel option[value=""] {
   position: relative;
 }
 /* 피자 토핑들 */
-.toppings {
+.toppings{
   visibility: hidden;
   /* width: 210px; */
   position: absolute;
@@ -306,53 +306,61 @@ select#sel option[value=""] {
   /* left: 0; */
   z-index: 1;
 }
+.newImg {
+  visibility: hidden;
+  /* width: 210px; */
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  z-index: 1;
+} 
 
 /* 각 토핑의 위치 조정 */
-.toppings:nth-child(1) {
-  /* 양송이 */
+/*.toppings:nth-child(1) {
+   양송이 
   width: 190px;
   top: 735px;
   right: 29%;
 }
 
 .toppings:nth-child(2) {
-  /* 토마토 */
+   토마토 
   width: 210px;
   top: 735px;
   right: 28%;
 }
 
 .toppings:nth-child(3) {
-  /* 햄 */
+   햄 
   width: 200px;
   top: 730px;
   right: 29%;
 }
 
 .toppings:nth-child(4) {
-  /* 파프리카 */
+   파프리카 
   width: 230px;
   top: 720px;
   right: 28%;
 }
 
 .toppings:nth-child(5) {
-  /* 양파 */
+   양파 
   width: 200px;
   top: 730px;
   right: 29%;
 }
 
 .toppings:nth-child(6) {
-  /* 피망 */
+   피망 
   width: 210px;
   top: 720px;
   right: 29%;
 }
 
 .toppings:nth-child(7) {
-  /* 올리브 */
+   올리브 
   width: 160px;
   top: 747px;
   right: 30%;
-}
+}*/
