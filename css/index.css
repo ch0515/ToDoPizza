@@ -294,4 +294,57 @@ select#sel option[value=""] {
   margin-top: 25px;
   width: 440px;
   height: 340px;
+  position: relative;
+}
+/* 피자 토핑들 */
+.toppings {
+  visibility: hidden;
+  /* width: 210px; */
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  z-index: 1;
+}
+
+/* 각 토핑의 위치 조정 */
+.toppings:nth-child(1) {
+  width: 190px;
+  top: 735px;
+  right: 29%;
+}
+
+.toppings:nth-child(2) {
+  width: 210px;
+  top: 735px;
+  right: 28%;
+}
+
+.toppings:nth-child(3) {
+  width: 200px;
+  top: 730px;
+  right: 29%;
+}
+
+.toppings:nth-child(4) {
+  width: 230px;
+  top: 720px;
+  right: 28%;
+}
+
+.toppings:nth-child(5) {
+  width: 200px;
+  top: 730px;
+  right: 29%;
+}
+
+.toppings:nth-child(6) {
+  width: 210px;
+  top: 720px;
+  right: 29%;
+}
+
+.toppings:nth-child(7) {
+  width: 160px;
+  top: 747px;
+  right: 30%;
 }
