@@ -89,7 +89,7 @@ targetaddbtn.addEventListener("click", () => {
   // p에 대한 참조 유지
   target2.appendChild(truncatedTextElement);
 
-  // 목표 삭제하기
+  // 목표 삭제하기 목표 삭제시 리스트도 삭제됨
   target2.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 
@@ -128,29 +128,8 @@ targetaddbtn.addEventListener("click", () => {
       }
     }
   });
-
-  // const toppingContainer = document.createElement("div");
-  // toppingContainer.id = "toppingContainer";
-
-  // for (let i = 0; i < toppingOptions.length; i++) {
-  //   const toppingOption = document.createElement("div");
-  //   toppingOption.className = "toppingOption";
-
-  //   const toppingRadio = document.createElement("input");
-  //   toppingRadio.type = "radio";
-  //   toppingRadio.name = "topping";
-  //   toppingRadio.value = toppingOptions[i];
-
-  //   const toppingLabel = document.createElement("label");
-  //   toppingLabel.innerHTML = toppingOptions[i];
-
-  //   toppingOption.appendChild(toppingRadio);
-  //   toppingOption.appendChild(toppingLabel);
-  //   toppingContainer.appendChild(toppingOption);
-  // }
-
-  // container.appendChild(toppingContainer);
-
+  
+  // 리스트 추가
   list_add_btn.addEventListener("click", function () {
     var labelText = prompt("리스트 텍스트를 입력하세요:");
     if (labelText !== null && labelText !== "") {
@@ -171,27 +150,47 @@ targetaddbtn.addEventListener("click", () => {
       // 컨테이너를 container 아래에 추가
       container.appendChild(checkboxContainer);
     }
+    
+    
+    // 리스트 삭제
+    checkboxContainer.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+  
+      function confirmAction() {
+        checkboxContainer.parentNode.removeChild(checkboxContainer);
+      }
+  
+      function cancelAction() {
+        // 동작 없음
+      }
+  
+      const result = confirm("리스트를 삭제하시겠습니까?");
+      if (result) {
+        confirmAction();
+      } else {
+        cancelAction();
+      }
+    });
+
+    // 리스트 수정
+    checkboxContainer.addEventListener("dblclick", function (event) {
+        const newGoal = prompt('새로운 리스트를 입력하세요:');
+        if (newGoal !== null) {
+          function confirmAction() {
+            label.textContent = newGoal;
+          }
+    
+          const result = confirm("리스트를 수정하시겠습니까?");
+          if (result) {
+            confirmAction();
+          } else {
+            cancelAction();
+          }
+        } else {
+          function cancelAction() {
+            // 동작 없음
+          }
+        }
+    });
   });
-  // 리스트 추가하기
-  // list_add_btn.addEventListener("click", function () {
-  //   var labelText = prompt("리스트 텍스트를 입력하세요:");
-  //   if (labelText !== null && labelText !== "") {
-  //     var checkboxContainer = document.createElement("div");
-  //     checkboxContainer.id = "checkboxContainer";
-  //     // 체크박스 요소 생성
-  //     var checkbox = document.createElement("input");
-  //     checkbox.type = "checkbox";
-
-  //     // 체크박스에 대한 레이블 생성
-  //     var label = document.createElement("label");
-  //     label.appendChild(document.createTextNode(labelText));
-
-  //     // 체크박스와 레이블을 컨테이너에 추가
-  //     checkboxContainer.appendChild(checkbox);
-  //     checkboxContainer.appendChild(label);
-
-  //     // 컨테이너를 container 아래에 추가
-  //     container.appendChild(checkboxContainer);
-  //   }
-  // });
 });
