@@ -299,15 +299,19 @@ select#sel option[value=""] {
 }
 /* 피자 토핑들 */
 .toppings{
-  visibility: hidden;
+  /* visibility: hidden; */
   /* width: 210px; */
   position: absolute;
   /* top: 0; */
   /* left: 0; */
+  width: 200px;
+  top: 730px;
+  right: 28.7%;
   z-index: 1;
 }
 .newImg {
-  visibility: hidden;
+  visibility: hidden; 
+  /* ㄴ 얘 필요없음 */
   /* width: 210px; */
   position: absolute;
   /* top: 0; */
@@ -316,7 +320,7 @@ select#sel option[value=""] {
 } 
 
 /* 각 토핑의 위치 조정 */
-/*.toppings:nth-child(1) {
+/* .toppings:nth-child(1) {
    양송이 
   width: 190px;
   top: 735px;
@@ -363,4 +367,4 @@ select#sel option[value=""] {
   width: 160px;
   top: 747px;
   right: 30%;
-}*/
+} */
