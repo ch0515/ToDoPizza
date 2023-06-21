@@ -194,7 +194,7 @@ main {
 
 #checkboxContainer {
   margin-top: 15px;
-  margin-left: 20%;
+  margin-left: 25%;
   font-size: 20px;
 }
 
@@ -295,4 +295,3 @@ select#sel option[value=""] {
   width: 440px;
   height: 340px;
 }
-

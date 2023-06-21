@@ -68,9 +68,10 @@ targetaddbtn.addEventListener("click", () => {
   }
 
   // 부모 요소에 추가하기
-  target2.appendChild(toppingimg);
-  container.appendChild(target2);
+
   document.body.appendChild(container);
+  container.appendChild(target2);
+  target2.appendChild(toppingimg);
   target2.appendChild(targetText);
   target2.appendChild(list_add_btn);
 
@@ -128,27 +129,27 @@ targetaddbtn.addEventListener("click", () => {
     }
   });
 
-  const toppingContainer = document.createElement("div");
-  toppingContainer.id = "toppingContainer";
+  // const toppingContainer = document.createElement("div");
+  // toppingContainer.id = "toppingContainer";
 
-  for (let i = 0; i < toppingOptions.length; i++) {
-    const toppingOption = document.createElement("div");
-    toppingOption.className = "toppingOption";
+  // for (let i = 0; i < toppingOptions.length; i++) {
+  //   const toppingOption = document.createElement("div");
+  //   toppingOption.className = "toppingOption";
 
-    const toppingRadio = document.createElement("input");
-    toppingRadio.type = "radio";
-    toppingRadio.name = "topping";
-    toppingRadio.value = toppingOptions[i];
+  //   const toppingRadio = document.createElement("input");
+  //   toppingRadio.type = "radio";
+  //   toppingRadio.name = "topping";
+  //   toppingRadio.value = toppingOptions[i];
 
-    const toppingLabel = document.createElement("label");
-    toppingLabel.innerHTML = toppingOptions[i];
+  //   const toppingLabel = document.createElement("label");
+  //   toppingLabel.innerHTML = toppingOptions[i];
 
-    toppingOption.appendChild(toppingRadio);
-    toppingOption.appendChild(toppingLabel);
-    toppingContainer.appendChild(toppingOption);
-  }
+  //   toppingOption.appendChild(toppingRadio);
+  //   toppingOption.appendChild(toppingLabel);
+  //   toppingContainer.appendChild(toppingOption);
+  // }
 
-  container.appendChild(toppingContainer);
+  // container.appendChild(toppingContainer);
 
   list_add_btn.addEventListener("click", function () {
     var labelText = prompt("리스트 텍스트를 입력하세요:");
@@ -172,25 +173,25 @@ targetaddbtn.addEventListener("click", () => {
     }
   });
   // 리스트 추가하기
-  list_add_btn.addEventListener("click", function () {
-    var labelText = prompt("리스트 텍스트를 입력하세요:");
-    if (labelText !== null && labelText !== "") {
-      var checkboxContainer = document.createElement("div");
-      checkboxContainer.id = "checkboxContainer";
-      // 체크박스 요소 생성
-      var checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
+  // list_add_btn.addEventListener("click", function () {
+  //   var labelText = prompt("리스트 텍스트를 입력하세요:");
+  //   if (labelText !== null && labelText !== "") {
+  //     var checkboxContainer = document.createElement("div");
+  //     checkboxContainer.id = "checkboxContainer";
+  //     // 체크박스 요소 생성
+  //     var checkbox = document.createElement("input");
+  //     checkbox.type = "checkbox";
 
-      // 체크박스에 대한 레이블 생성
-      var label = document.createElement("label");
-      label.appendChild(document.createTextNode(labelText));
+  //     // 체크박스에 대한 레이블 생성
+  //     var label = document.createElement("label");
+  //     label.appendChild(document.createTextNode(labelText));
 
-      // 체크박스와 레이블을 컨테이너에 추가
-      checkboxContainer.appendChild(checkbox);
-      checkboxContainer.appendChild(label);
+  //     // 체크박스와 레이블을 컨테이너에 추가
+  //     checkboxContainer.appendChild(checkbox);
+  //     checkboxContainer.appendChild(label);
 
-      // 컨테이너를 container 아래에 추가
-      container.appendChild(checkboxContainer);
-    }
-  });
+  //     // 컨테이너를 container 아래에 추가
+  //     container.appendChild(checkboxContainer);
+  //   }
+  // });
 });
