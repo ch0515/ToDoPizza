@@ -98,7 +98,7 @@ main {
 .toppingimg{
   width: 30px;
   height: 30px;
-  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .dropbtn{
@@ -174,7 +174,7 @@ main {
   font-size: 24px;
   font-weight: bolder;
   width: 140px;
-  margin-right: 3px;
+  margin-right: 2px;
 }
 
 .add_btn {
