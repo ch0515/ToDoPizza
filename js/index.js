@@ -166,10 +166,14 @@ targetaddbtn.addEventListener("click", () => {
           topping.style.visibility = "hidden";
         }
       });
-    
+
     } else {
       // 체크박스가 하나라도 체크가 덜 되었을 때!
-      topping.style.visibility = "hidden";
+      var toppings = document.querySelectorAll('.toppings');
+
+      toppings.forEach(function (topping) {
+        topping.style.visibility = "hidden";
+      });
     }
   }
 
@@ -201,6 +205,13 @@ targetaddbtn.addEventListener("click", () => {
 
       // 체크박스 상태 변경 처리
       checkbox.addEventListener('change', handleCheckboxChange);
+
+      // 이미지 숨기기
+      var toppings = document.querySelectorAll('.toppings');
+      toppings.forEach(function (topping) {
+        topping.style.visibility = "hidden";
+      });
+
     }
 
 
