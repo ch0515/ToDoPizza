@@ -213,17 +213,6 @@ input[type=checkbox] {
 label {
   width: 100px;
 }
-/* select option */
-/* select#sel option {
-  padding-left: 25px;
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-
-select#sel option[value=""] {
-  background-image: none;
-} */
-
 
 /* ======== Calendar ======== */
 .container {

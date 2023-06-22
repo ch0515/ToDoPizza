@@ -191,54 +191,6 @@ targetaddbtn.addEventListener("click", () => {
       }
 
     }
-    // debugger;
-    /*
-    var checkboxes = document.querySelectorAll('.checkbox');
-    var pizza = document.getElementById('pizza');
-    var allChecked = true;
-
-    checkboxes.forEach(function (checkbox) {
-      if (!checkbox.checked) {
-        allChecked = false;
-      }
-    });
-
-    if (allChecked) {
-      // 알맞은 toppings visible~! 토핑 나타나게!!
-      // 체크박스가 모두 체크되었을 때!
-
-      // .toppings 이미지 요소들을 가져옵니다.
-      var toppings = document.querySelectorAll('.toppings');
-
-      // 선택된 토핑 번호에 해당하는 이미지들을 표시하고, 나머지 이미지들은 숨깁니다.
-      toppings.forEach(function (topping) {
-        var toppingNumber = topping.dataset.toppingNumber;
-
-        if (toppingNumber === selectedTopping) {
-          var newImg = document.createElement("img");
-          newImg.id = "newImg";
-          newImg.className = "newImg";
-          newImg.src = newImgsrc;
-          newImg.style.visibility = "visible";
-          pizza.appendChild(newImg);
-        } else {
-          var newImg = document.createElement("img");
-          newImg.id = "newImg";
-          newImg.className = "newImg";
-          newImg.src = newImgsrc;
-          newImg.style.visibility = "hidden";
-          pizza.appendChild(newImg);
-        }
-      });
-      
-    } else {
-      // 체크박스가 하나라도 체크가 덜 되었을 때!
-      var toppings = document.querySelectorAll('.newImg');
-      toppings.forEach(function (topping) {
-        topping.style.visibility = "hidden";
-      });
-    }
-    */
   }
 
 
