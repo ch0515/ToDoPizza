@@ -299,24 +299,27 @@ select#sel option[value=""] {
 }
 /* 피자 토핑들 */
 .toppings{
-  /* visibility: hidden; */
+  visibility: hidden;
   /* width: 210px; */
   position: absolute;
   /* top: 0; */
   /* left: 0; */
+  z-index: 1;
   width: 200px;
   top: 730px;
   right: 28.7%;
-  z-index: 1;
+}
+.toppings.visible {
+  visibility: visible;
 }
 .newImg {
   visibility: hidden; 
   /* ㄴ 얘 필요없음 */
-  /* width: 210px; */
   position: absolute;
-  /* top: 0; */
-  /* left: 0; */
   z-index: 1;
+  width: 200px;
+  top: 730px;
+  right: 28.7%;
 } 
 
 /* 각 토핑의 위치 조정 */

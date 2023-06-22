@@ -1,9 +1,21 @@
 const targetaddbtn = document.getElementById("add_btn");
 const dropbtn_icon = document.getElementsByClassName('dropbtn_icon');
 
+const toppings = {
+  "ham": false,
+  "mushroom": false,
+  "olive": false,
+  "onion": false,
+  "paprika": false,
+  "pimento": false,
+  "tomato": false
+}
+
 targetaddbtn.addEventListener("click", () => {
+  // let a;
+  // a++;
   const container = document.createElement("div");
-  container.id = "container";
+  container.className = "container todo-container";
   const target2 = document.createElement("div");
   target2.id = "target2";
   target2.className = "target2";
@@ -36,7 +48,7 @@ targetaddbtn.addEventListener("click", () => {
       break;
     case "5":
       toppingimg.src = '../img/paprika.png';
-      newImgsrc = '../img/paprika.png';
+      newImgsrc = '../img/paprikaT.png';
       break;
     case "6":
       toppingimg.src = '../img/pimento.png';
@@ -148,6 +160,39 @@ targetaddbtn.addEventListener("click", () => {
 
   // 체크박스 상태 변경을 체크함
   function handleCheckboxChange() {
+    console.log("handleCheckboxChange");
+    const containers = document.querySelectorAll(".todo-container");
+    for(const container of containers) {
+      const checkboxes = container.querySelectorAll("input[type=checkbox]");
+      let checkedCount = 0;
+      if(checkboxes.length !== 0) {
+        for(const checkbox of checkboxes) {
+          if(checkbox.checked) checkedCount++;
+        }
+        const tmp = container.querySelector(".toppingimg").src.split('/');
+        const topping = tmp[tmp.length - 1].split(".")[0];
+        if(checkedCount === checkboxes.length) {  
+          console.log(topping);
+          toppings[topping] = true;
+        } else {
+          toppings[topping] = false;
+        }
+        decoratePizza();
+      }
+
+    }
+    function decoratePizza() {
+      const pizzaToppings = document.querySelector(".pizza").querySelectorAll("img.toppings");
+      for(const t of pizzaToppings) {
+        const tmp =  t.src.split('/');
+        let topping = tmp[tmp.length - 1].split(".")[0];
+        topping = topping.replace("T", "");
+        t.style.visibility = toppings[topping] ? "visible" : "hidden";
+      }
+
+    }
+    // debugger;
+    /*
     var checkboxes = document.querySelectorAll('.checkbox');
     var pizza = document.getElementById('pizza');
     var allChecked = true;
@@ -185,15 +230,15 @@ targetaddbtn.addEventListener("click", () => {
           pizza.appendChild(newImg);
         }
       });
-
+      
     } else {
       // 체크박스가 하나라도 체크가 덜 되었을 때!
-      var toppings = document.querySelectorAll('.toppings');
-
+      var toppings = document.querySelectorAll('.newImg');
       toppings.forEach(function (topping) {
         topping.style.visibility = "hidden";
       });
     }
+    */
   }
 
 
@@ -226,8 +271,8 @@ targetaddbtn.addEventListener("click", () => {
       checkbox.addEventListener('change', handleCheckboxChange);
 
       // 이미지 숨기기
-      var toppings = document.querySelectorAll('.toppings');
-      toppings.forEach(function (topping) {
+      var topping = document.querySelectorAll('.topping');
+      topping.forEach(function (topping) {
         topping.style.visibility = "hidden";
       });
 
