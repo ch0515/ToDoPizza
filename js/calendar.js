@@ -220,8 +220,8 @@ function createNewList(val) {
 loadYYMM(init.today);
 loadDate(init.today.getDate(), init.today.getDay());
 
-$btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
-$btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
+// $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
+// $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
 
 //달력에 일을 화면에 구현해주는 코드
 $calBody.addEventListener('click', (e) => {

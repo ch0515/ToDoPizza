@@ -210,14 +210,18 @@ input[type=checkbox] {
   cursor: pointer;
 }
 
-label {
-  width: 100px;
+.todo-container {
+  /* margin-left: ; */
 }
+/* label {
+  width: 150px;
+} */
 
 /* ======== Calendar ======== */
 .container {
   float: right;
   margin-right: 22%;
+  height: 100%;
 }
 
 .cal-wrapper {
