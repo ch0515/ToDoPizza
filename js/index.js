@@ -21,7 +21,7 @@ targetaddbtn.addEventListener("click", () => {
   target2.className = "target2";
 
   // 토핑 선택을 위한 prompt 창
-  const selectedTopping = prompt("토핑을 선택하세요: \n1. 햄   2. 버섯   3. 올리브   4. 양파   5. 파프리카   6. 피망   7. 토마토");
+  const selectedTopping = prompt("토핑을 선택하세요(중복 금지): \n1. 햄   2. 버섯   3. 올리브   4. 양파   5. 파프리카   6. 피망   7. 토마토");
 
   // 선택한 토핑 이미지 설정
   const toppingimg = document.createElement('img');
